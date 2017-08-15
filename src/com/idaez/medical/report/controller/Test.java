@@ -46,7 +46,7 @@ public class Test {
             XWPFDocument xdoc = new XWPFDocument(fis);
             XWPFWordExtractor extractor = new XWPFWordExtractor(xdoc);
             String doc1 = extractor.getText();
-            System.out.println(doc1);
+            System.out.println(doc1.replaceAll(" ", ""));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
