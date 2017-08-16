@@ -1,4 +1,4 @@
-package com.idaez.medical.report.controller;
+package com.report.word;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,7 +26,9 @@ import org.apache.poi.hwpf.usermodel.TableCell;
 import org.apache.poi.hwpf.usermodel.TableIterator;
 import org.apache.poi.hwpf.usermodel.TableRow;
 
-import com.idaez.framework.util.DateUtil;
+import com.report.Const;
+import com.report.util.DateUtil;
+
 
 /**
  * 使用 POI 解析 DOC2003 文件的内容信息

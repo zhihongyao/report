@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-     <context:component-scan base-package="com.idaez.medical.report.controller"/>
+     <context:component-scan base-package="com.report.controller"/>
      
      <aop:aspectj-autoproxy  proxy-target-class="true" expose-proxy="true"/>
      

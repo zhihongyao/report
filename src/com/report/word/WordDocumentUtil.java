@@ -1,4 +1,4 @@
-package com.idaez.medical.report.controller;
+package com.report.word;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.codec.binary.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.model.PicturesTable;
 import org.apache.poi.hwpf.usermodel.CharacterRun;
@@ -26,9 +26,11 @@ import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Picture;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.hwpf.usermodel.Table;
+import org.apache.poi.hwpf.usermodel.TableCell;
 import org.apache.poi.hwpf.usermodel.TableIterator;
 import org.apache.poi.hwpf.usermodel.TableRow;
-import org.apache.poi.sl.usermodel.TableCell;
+
+import com.report.util.ChineseUtil;
 
 
 /**
@@ -371,7 +373,7 @@ public class WordDocumentUtil {
 
                 htmlTextTbl+="<tr>";
                 //迭代列，默认从0开始   
-                for (int j = 0; j < tr.numCells(); j++) {      
+                for (int j = 0; j < tr.numCells(); j++) {
                     TableCell td = tr.getCell(j);//取得单元格
                     int cellWidth=td.getWidth();
 

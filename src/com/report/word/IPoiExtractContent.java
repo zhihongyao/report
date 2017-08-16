@@ -1,4 +1,4 @@
-package com.idaez.medical.report.controller;
+package com.report.word;
 
 import java.util.Map;
 

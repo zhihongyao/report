@@ -1,4 +1,4 @@
-package com.idaez.medical.report.controller;
+package com.report.word;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,13 +14,14 @@ import org.apache.poi.POIXMLDocument;
 import org.apache.poi.POIXMLProperties.CoreProperties;
 import org.apache.poi.POIXMLTextExtractor;
 import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFPictureData;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
+
+import com.report.util.DateUtil;
 
 /**
  * 使用 POI 解析 DOCX2007 文件的内容信息

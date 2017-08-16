@@ -1,4 +1,4 @@
-package com.idaez.medical.report.controller;
+package com.report.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,13 +8,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.report.Const;
+import com.report.word.IPoiExtractContent;
+import com.report.word.PoiHwpfExtractContentImpl;
+import com.report.word.PoiXwpfExtractContentImpl;
+
 @Controller
 @RequestMapping("/report")
-public class ReportController extends BaseController {
+public class ReportController {
 	
-	public static final String inputFile = "E:\\Medical\\test.doc";
+	public static final String inputFile = "C:\\temp\\test.docx";
 	
-	@RequestMapping(value="/entrance",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="",method={RequestMethod.GET,RequestMethod.POST})
 	public String entrance(Model model, HttpServletRequest request, HttpServletResponse response){
 		try {
 			//getWordAndStyle(inputFile);
@@ -24,7 +29,11 @@ public class ReportController extends BaseController {
 	        }else{
 	        	wordService = new PoiHwpfExtractContentImpl();
 	        }
-			wordService.getContent(inputFile);
+			String result = wordService.getContent(inputFile);
+			response.setContentType(Const.CONTENTTYPE_TEXT);
+			response.getWriter().write(result);
+			response.getWriter().flush();
+			System.out.println(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
