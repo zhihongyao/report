@@ -100,7 +100,7 @@ public class PoiHwpfExtractContentImpl implements IPoiExtractContent<HWPFDocumen
 	 *            doc 对象路径
 	 * @return word 文档中文字部分全部内容
 	 */
-	public String getContent(String docPath) {
+	/*public String getContent(String docPath) {
 		StringBuffer strBuff = new StringBuffer("");
 		try {
 			WordExtractor extractor = new WordExtractor(new FileInputStream(docPath));
@@ -113,6 +113,16 @@ public class PoiHwpfExtractContentImpl implements IPoiExtractContent<HWPFDocumen
 			e.printStackTrace();
 		}
 		return strBuff.toString().replaceAll("", "");
+	}*/
+	public String getContent(String docPath) {
+		String str = "";
+		try {
+			WordExtractor extractor = new WordExtractor(new FileInputStream(docPath));
+			str = extractor.getText();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return str.replaceAll("", "");
 	}
 
 	/**

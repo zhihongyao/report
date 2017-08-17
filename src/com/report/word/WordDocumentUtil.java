@@ -68,7 +68,8 @@ public class WordDocumentUtil {
 	public static String htmlTextArray[];
 	public static boolean tblExist = false;
 
-	public static final String inputFile = "E:\\Medical\\test.doc";
+	public static final String inputFile = "D:\\temp\\test03.doc";
+	//public static final String inputFile = "D:\\temp\\test07.docx";
 	public static final String htmlFile = "E:/Medical/abc.html";
 
 	public static final String departmentNoRegEx = "\\d{10}";
@@ -80,12 +81,15 @@ public class WordDocumentUtil {
 			IPoiExtractContent wordService = null;
 			if(inputFile.substring(inputFile.lastIndexOf(".")+1).equalsIgnoreCase("docx")){
 				wordService = new PoiXwpfExtractContentImpl();
+				String str = wordService.getContent(inputFile);
+				System.out.println(str);
 	        }else{ //2003
 	        	wordService = new PoiHwpfExtractContentImpl();
-//	        	FileInputStream in = new FileInputStream(new File(inputFile));
-//		        HWPFDocument doc = new HWPFDocument(in);
-//				String str = wordService.getContent(doc);
+	        	/*FileInputStream in = new FileInputStream(new File(inputFile));
+		        HWPFDocument doc = new HWPFDocument(in);
+				String str = wordService.getContent(doc);*/
 	        	String str = wordService.getContent(inputFile);
+	        	System.out.println(str);
 	        	String personalInfo = "";
 	        	if(str.indexOf("总检结论及建议") != -1){
 	        		personalInfo = str.substring(0,str.indexOf("总检结论及建议"));

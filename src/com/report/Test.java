@@ -13,8 +13,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		try {
-			// readWord2003("C:\\temp\\test3.doc");
-			readWord2007("C:\\temp\\test.docx");
+			readWord2003("D:\\temp\\test03.doc");
+			readWord2007("D:\\temp\\test07.docx");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
