@@ -2,6 +2,7 @@ package com.report.word;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -116,11 +117,20 @@ public class PoiHwpfExtractContentImpl implements IPoiExtractContent<HWPFDocumen
 	}*/
 	public String getContent(String docPath) {
 		String str = "";
+		WordExtractor extractor = null;
 		try {
-			WordExtractor extractor = new WordExtractor(new FileInputStream(docPath));
+			extractor = new WordExtractor(new FileInputStream(docPath));
 			str = extractor.getText();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if(extractor != null){
+					extractor.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return str.replaceAll("", "");
 	}

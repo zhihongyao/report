@@ -98,12 +98,21 @@ public class PoiXwpfExtractContentImpl implements IPoiExtractContent<XWPFDocumen
 	 */
 	public String getContent(String docxPath) {
 		String content = "";
+		POIXMLTextExtractor extractor = null;
 		try {
 			OPCPackage opcPackage = POIXMLDocument.openPackage(docxPath);
-			POIXMLTextExtractor extractor = new XWPFWordExtractor(opcPackage);
+			extractor = new XWPFWordExtractor(opcPackage);
 			content += extractor.getText().trim();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if(extractor != null){
+					extractor.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return content.replaceAll("", "");
 	}
