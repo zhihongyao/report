@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+html,body{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+	font-family: "Helvetica Neue","Microsoft Yahei","SimHei",sans-serif;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a:focus, a:link {
+    outline: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.g-upload-container{
+	width: 500px;
+	margin:0 auto;
+	margin-top: 10px;
+    border: 1px solid #e4e4e4;
+    padding: 15px;
+    color: #999;
+}
+
+.g-upload-container h3{
+	font-size: 22px;
+    height: 46px;
+    line-height: 46px;
+    padding-left: 10px;
+    color: #f60;
+    border-bottom: 2px solid #f60;
+    margin: 0;
+}
+
+.g-upload-container h4{
+	font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #999;
+    background: #f7f7f7;
+    margin: 0;
+}
+
+.u-uplaod-file,.u-uplaod-file input{
+	width: 220px;
+}
+
+.u-uplaod-file{
+	display: block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 10px auto 0;
+}
+
+.u-uplaod-file input{
+	font-size: 16px;
+}
+
+.u-select-file{
+	display: block;
+    width: 130px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 10px auto 0;
+}
+
+/*a  upload */
+.u-select-file {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.u-select-file  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.u-select-file:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+.m-remark{
+    padding: 20px 0;
+    font-size: 14px;
+    text-indent: 2em;
+    border-top: 2px solid #f60;
+    margin: 10px;
+}
+
+.m-file-container{
+    margin-top: 10px;
+    border: 1px solid #e4e4e4;
+}
+
+.m-file-container .m-file-list{
+	margin: 0;
+	overflow-y:auto;
+    overflow-x:hidden;
+    max-height: 200px;
+}
+
+.m-file-list{
+	padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.m-file-list li{
+	
+}
+
+.file-empty{
+	margin: 20px;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
+
+.hidden{
+	display: none;
+}

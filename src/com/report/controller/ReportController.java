@@ -12,6 +12,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,17 +21,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.medical.compress.DecompressionUtil;
+import com.medical.web.core.BaseController;
 import com.report.Const;
 import com.report.excel.ProjectToExcel;
 import com.report.util.DateUtil;
 import com.report.util.FileUtil;
+import com.report.vo.FileVo;
 import com.report.word.IPoiExtractContent;
 import com.report.word.PoiHwpfExtractContentImpl;
 import com.report.word.PoiXwpfExtractContentImpl;
+import com.sun.prism.impl.BaseContext;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/report")
-public class ReportController {
+public class ReportController extends BaseController {
 
 	@RequestMapping(value = "entrance", method = { RequestMethod.GET, RequestMethod.POST })
 	public String entrance(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -92,9 +98,10 @@ public class ReportController {
 	        String transformPath = ProjectToExcel.creatExcel(path, filePath);
 	        File transformFile = new File(transformPath);
 	        String transformFileName = transformFile.getName();
-	        model.addAttribute("filePath",transformPath.substring(0,transformPath.indexOf(transformFileName)));
-	        model.addAttribute("fileName",transformFileName);
-	        return "download";
+	        JSONObject jo = new JSONObject();
+	        jo.put("filePath",transformPath.substring(0,transformPath.indexOf(transformFileName)));
+	        jo.put("fileName",transformFileName);
+	        return this.ajaxJsonSuccessData(jo, "文件处理成功");
 			// getWordAndStyle(inputFile);
 			/*
 			IPoiExtractContent wordService = null;
@@ -123,52 +130,58 @@ public class ReportController {
      * @param response
      * @return
      */
-    @RequestMapping("/download")
-    public String downloadFile(Model model, HttpServletRequest request, HttpServletResponse response) {
-    	String fileName = request.getAttribute("fileName")+"";
-        if (fileName != null) {
-            String realPath = request.getAttribute("filePath")+"";
-            File file = new File(realPath, fileName);
-            if (file.exists()) {
-                response.setContentType("application/force-download");// 设置强制下载不打开
-                response.addHeader("Content-Disposition",
-                        "attachment;fileName=" + fileName);// 设置文件名
-                byte[] buffer = new byte[1024];
-                FileInputStream fis = null;
-                BufferedInputStream bis = null;
-                try {
-                    fis = new FileInputStream(file);
-                    bis = new BufferedInputStream(fis);
-                    OutputStream os = response.getOutputStream();
-                    int i = bis.read(buffer);
-                    while (i != -1) {
-                        os.write(buffer, 0, i);
-                        i = bis.read(buffer);
-                    }
-                } catch (Exception e) {
-                    // TODO: handle exception
-                    e.printStackTrace();
-                } finally {
-                    if (bis != null) {
-                        try {
-                            bis.close();
-                        } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    }
-                    if (fis != null) {
-                        try {
-                            fis.close();
-                        } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        }
-        return null;
-    }
+    @RequestMapping(value = "download", method = { RequestMethod.GET, RequestMethod.POST })
+    public String downloadFile(FileVo vo, Model model, HttpServletRequest request, HttpServletResponse response) {
+		FileInputStream fis = null;
+		BufferedInputStream bis = null;
+		OutputStream os = null;
+		try {
+			if (StringUtils.isBlank(vo.getFileName()) || StringUtils.isBlank(vo.getFilePath())) {
+				response.setContentType("text/html");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().print("<script>window.parent.downloadError('参数不正确');</script>");
+				return null;
+			}
+			File file = new File(vo.getFilePath(), vo.getFileName());
+			if (!file.exists()) {
+				response.setContentType("text/html");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().print("<script>window.parent.downloadError('文件不存在');</script>");
+				return null;
+			}
+			response.setContentType("application/force-download");// 设置强制下载不打开
+			response.addHeader("Content-Disposition", "attachment;fileName=" + vo.getFileName());// 设置文件名
+			byte[] buffer = new byte[1024];
+			fis = new FileInputStream(file);
+			bis = new BufferedInputStream(fis);
+			os = response.getOutputStream();
+			int i = bis.read(buffer);
+			while (i != -1) {
+				os.write(buffer, 0, i);
+				i = bis.read(buffer);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				response.getOutputStream().flush();
+				response.getOutputStream().close();
+				if (bis != null) {
+					bis.close();
+				}
+				if (fis != null) {
+					fis.close();
+				}
+				if (os != null) {
+					os.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return null;
+	}
 
 }

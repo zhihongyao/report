@@ -114,11 +114,11 @@ public class Constant {
 		Patterns.add("HDL-C[\t]{1,}([\\d.\\t]*mmol/L)[\t]{1,}");
 		Patterns.add("URIC[\t]{1,}([\\d.\\t]*umol/L)[\t]{1,}");
 		Patterns.add("LP\\(a\\)[\t]{1,}([\\d.\\t]*mg/L)[\t]{1,}");
-		Patterns.add("LDL-C[\t]{1,}([\\d.\\t]*mmol/L)[\t]{1,}");
+		Patterns.add("LDL-C[\t]{1,}(.*?mmol/L)[\t]{1,}");
 		Patterns.add("Ca[\t]{1,}([\\d.\\t]*mmol/L)[\t]{1,}");
 		Patterns.add("ALT\\/AST[\t]{1,}([\\d.\\t]*)[\t]{1,}");
 		Patterns.add("G[\t]{1,}([\\d.\\t]*g/L)[\t]{1,}");
-		Patterns.add("A/G(.*)[\t\r\n]?");
+		Patterns.add("A/G(.*)[\t]{1,}");
 		Patterns.add("BIL-I[\t]{1,}([\\d.\\t]*umol/L)[\t]{1,}");
 		Patterns.add("ADA[\t]{1,}([\\d.\\t]*U/L)[\t]{1,}");
 		Patterns.add("Mg[\t]{1,}([\\d.\\t]*mmol/L)[\t]{1,}");
@@ -127,8 +127,11 @@ public class Constant {
 		Patterns.add("HBDH[\t]{1,}([\\d.\\t]*U/L)[\t]{1,}");
 		Patterns.add("CHE[\t]{1,}([\\d.\\t]*U/L)[\t]{1,}");
 		Patterns.add("FRUC[\t]{1,}([\\d.\\t]*mmol/L)[\t]{1,}");
+		Patterns.add("TBA[\t]{1,}([\\d.\\t]*umol/L)[\t]{1,}");
+		Patterns.add("SA[\t]{1,}([\\d.\\t]*mg/dL)[\t]{1,}");
+		Patterns.add("GA[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
 		//未分类
-		Patterns.add("AFP[\t]{1,}([\\d.\\t]*ng/mL)[\t]{1,}");
+		Patterns.add("AFP[\t]{1,}([\\d.\\t<>]*ng/mL)[\t]{1,}");
 		Patterns.add("CEA[\t]{1,}([\\d.\\t]*ng/mL)[\t]{1,}");
 		Patterns.add("CA50[\t]{1,}([\\d.\\t]*IU/mL)[\t]{1,}");
 		Patterns.add("CA72-4[\t]{1,}([\\d.\\t]*U/mL)[\t]{1,}");
@@ -188,7 +191,7 @@ public class Constant {
 		Patterns.add("MONO%[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
 		Patterns.add("EO%[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
 		Patterns.add("BASO%[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
-		Patterns.add("HCT[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
+		Patterns.add("HCT[\t]{1,}([\\d.\\t]*(%|L/L))[\t]{1,}");
 		Patterns.add("MCH[\t]{1,}([\\d.\\t]*pg)[\t]{1,}");
 		Patterns.add("MCHC[\t]{1,}([\\d.\\t]*g/L)[\t]{1,}");
 		Patterns.add("RDW-C[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
@@ -198,24 +201,24 @@ public class Constant {
 		Patterns.add("PCT[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
 		Patterns.add("RDW-S[\t]{1,}([\\d.\\t]*fL)[\t]{1,}");
 		//尿常规
-		Patterns.add("VC[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
-		Patterns.add("GLU[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
+		Patterns.add("VC[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
+		Patterns.add("GLU[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("KET[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("BIL[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("PRO[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("NIT[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("PH[\t]{1,}([\\d.]*)[\t]{1,3}");
 		Patterns.add("SG[\t]{1,}([\\d.]*)[\t]{1,3}");
-		Patterns.add("BLD[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
-		Patterns.add("URO[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
-		Patterns.add("WBC[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
+		Patterns.add("BLD[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
+		Patterns.add("URO[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
+		Patterns.add("WBC[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		//未分类 部分没有 占位
 		//Patterns.add("HbA1c\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("HbA1c[\t]{1,}([\\d.\\t]*%)[\t]{1,}");
 		Patterns.add("乳腺彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("腋窝淋巴结彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("乳腺钼钯[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
-		Patterns.add("心脏彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
+		Patterns.add("心脏彩色多普勒超声(?:检查\\[体检\\])[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("甲状腺彩色多普勒超声检查[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("泌尿系彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("经腹部妇科彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
@@ -227,7 +230,7 @@ public class Constant {
 		Patterns.add("胸部CT平扫.*[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("颅脑CT平扫.*[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("颅脑MR平扫成像+DWI成像[\r\n]{1,}(.*)[\r\n]{1}");
-		Patterns.add("经颅彩色多普勒超声检查[\r\n]{1,}(.*)[\r\n]{1}");
+		Patterns.add("经颅彩色多普勒超声检查[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("HP-IgG[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}");
 		Patterns.add("C13呼气试验[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");
 		Patterns.add("C14呼气试验[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)");

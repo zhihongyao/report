@@ -178,6 +178,9 @@ public class ProjectToExcelTitleMap {
 		shengHuaQuanTaoList.add("α-羟丁酸脱氢酶");
 		shengHuaQuanTaoList.add("胆碱酯酶");
 		shengHuaQuanTaoList.add("果糖胺");
+		shengHuaQuanTaoList.add("总胆汁酸");
+		shengHuaQuanTaoList.add("唾液酸");
+		shengHuaQuanTaoList.add("糖化白蛋白");
 		projectMap.put("生化全套", shengHuaQuanTaoList);
 		
 		gongJingAiZaoQiShaiChaList.add("HPV6(低危型)");

@@ -10,7 +10,7 @@ public class WordDocumentExtractor {
 	public static void main(String[] args) {
 		//整体测试输出
 		System.out.println("-----------2007-----------");
-		String path = "E:\\Medical\\exam\\丁锦章.docx";
+		String path = "D:\\Documents\\Downloads\\Medical\\exam\\20170913\\白星布1.2.doc";
 		List<List> list = getResult(path);
 		for (List<String> item : list) {
 			for(String str : item) {
@@ -35,7 +35,7 @@ public class WordDocumentExtractor {
 	
 	public static List getResult(String path) {
 		String content = getDocument(path);
-		//System.out.println(content);
+		System.out.println(content);
 		Pattern r = Pattern.compile("姓名(.*)性别");
 		Matcher m = r.matcher(content);
 		List<Integer> indexs = new ArrayList<Integer>();
@@ -105,9 +105,9 @@ public class WordDocumentExtractor {
 //		pattern = "BMI(.*)[\t\r\n]?";
 //		pattern = "发育(.*)[\t\r\n]?";
 //		pattern = "营养[\t](.*)[\r\n]";
-		pattern = "嗜好([\\s\\S]+?).*?[\\t]{1}";
+//		pattern = "嗜好([\\s\\S]+?).*?[\\t]{1}";
 //		pattern = "药物过敏史(.*)[\t\r\n]?";
-		pattern = "主要病史([\\s\\S]+?).*?[\\t]{1}";
+//		pattern = "主要病史([\\s\\S]+?).*?[\\t]{1}";
 //		pattern = "家族史(.*)[\t\r\n]?";
 //		pattern = "心脏(.*)[\t\r\n]?";
 //		pattern = "肺部检查(.*)[\t\r\n]?";
@@ -201,7 +201,7 @@ public class WordDocumentExtractor {
 //		pattern = "Ca[\t]{1,}(.*?mmol/L)[\t]{1,}";
 //		pattern = "ALT\\/AST[\t]{1,}([\\d.\\t]*)[\t]{1,}";
 //		pattern = "球蛋白[\t]{1,}(.*?mmol/L)[\t]{1,}";
-//		pattern = "白/球比[\t]{1,}(.*?mmol/L)[\t]{1,}";
+//		pattern = "A/G(.*)[\t]{1,}";
 //		pattern = "间接胆红素[\t]{1,}(.*?mmol/L)[\t]{1,}";
 //		pattern = "腺苷脱氨酶[\t]{1,}(.*?mmol/L)[\t]{1,}";
 //		pattern = "镁[\t]{1,}(.*?mmol/L)[\t]{1,}";
@@ -211,7 +211,7 @@ public class WordDocumentExtractor {
 //		pattern = "胆碱酯酶[\t]{1,}(.*?mmol/L)[\t]{1,}";
 //		pattern = "果糖胺[\t]{1,}(.*?mmol/L)[\t]{1,}";
 //		// 未分类
-//		pattern = "AFP[\t]{1,}(.*?ng/mL)[\t]{1,}";
+//		pattern = "AFP[\t]{1,}([\\d.\\t]*ng/mL)[\t]{1,}";
 //		pattern = "CEA[\t]{1,}(.*?ng/mL)[\t]{1,}";
 //		pattern = "CA50[\t]{1,}(.*?IU/mL)[\t]{1,}";
 //		pattern = "CA72-4[\t]{1,}(.*?U/mL)[\t]{1,}";
@@ -271,7 +271,7 @@ public class WordDocumentExtractor {
 //		pattern = "MONO%[\t]{1,}(.*?%)[\t]{1,}";
 //		pattern = "EO%[\t]{1,}(.*?%)[\t]{1,}";
 //		pattern = "BASO%[\t]{1,}(.*?%)[\t]{1,}";
-//		pattern = "红细胞比积[\t]{1,}(.*?%)[\t]{1,}";
+//		pattern = "HCT[\t]{1,}([\\d.\\t]*(%|L/L))[\t]{1,}";
 //		pattern = "MCH[\t]{1,}(.*?pg)[\t]{1,}";
 //		pattern = "MCHC[\t]{1,}(.*?g/L)[\t]{1,}";
 //		pattern = "RDW-C[\t]{1,}(.*?%)[\t]{1,}";
@@ -281,8 +281,8 @@ public class WordDocumentExtractor {
 //		pattern = "PCT[\t]{1,}(.*?%)[\t]{1,}";
 //		pattern = "RDW-S[\t]{1,}(.*?fL)[\t]{1,}";
 //		// 尿常规
-//		pattern = "VC[\t]{1,}(.*?fL)[\t]{1,}";
-//		pattern = "GLU[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
+//		pattern = "VC[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
+//		pattern = "GLU[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
 //		pattern = "KET[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
 //		pattern = "BIL[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
 //		pattern = "PRO[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
@@ -290,14 +290,14 @@ public class WordDocumentExtractor {
 //		pattern = "PH[\t]{1,}([\\d.]*)[\t]{1,3}";
 //		pattern = "SG[\t]{1,}([\\d.]*)[\t]{1,3}";
 //		pattern = "BLD[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
-//		pattern = "URO[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
+//		pattern = "URO[\t]{1,}(.*?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
 //		pattern = "WBC[\t]{1,}([\\D]{1,}?[\t]{1,}?[\\D]{1,}?)[\r\n]{1}";
 //		// 未分类 部分没有 占位
 //		pattern = "HbA1c[\t]{1,}([\\d.\\t]*%)[\t]{1,}";
 //		pattern = "乳腺彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
 //		pattern = "腋窝淋巴结彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
 //		pattern = "乳腺钼钯[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
-//		pattern = "心脏彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
+//		pattern = "心脏彩色多普勒超声(?:检查\\[体检\\])[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
 //		pattern = "甲状腺彩色多普勒超声检查[\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
 //		pattern = "泌尿系彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";
 //		pattern = "经腹部妇科彩色多普勒超声检查\\[体检\\][\r\n]{1,}([\\s\\S]*?日期:[\\d-]*)";

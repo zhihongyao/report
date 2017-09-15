@@ -28,14 +28,14 @@ public class ProjectToExcel {
 			// 声明一个工作薄
 			workbook = new HSSFWorkbook();
 			workbook.createInformationProperties();
-			workbook.getDocumentSummaryInformation().setCompany("体可问");
+			workbook.getDocumentSummaryInformation().setCompany("JAVA EXPORT");
 			SummaryInformation si = workbook.getSummaryInformation();
-			si.setAuthor("体可问"); // 填加xls文件作者信息
+			si.setAuthor("JAVA EXPORT"); // 填加xls文件作者信息
 			si.setApplicationName("JAVA EXPORT"); // 填加xls文件创建程序信息
-			si.setLastAuthor("体可问"); // 填加xls文件最后保存者信息
-			si.setComments("体可问"); // 填加xls文件作者信息
-			si.setTitle("体可问"); // 填加xls文件标题信息
-			si.setSubject("体可问");// 填加文件主题信息
+			si.setLastAuthor("JAVA EXPORT"); // 填加xls文件最后保存者信息
+			si.setComments("JAVA EXPORT"); // 填加xls文件作者信息
+			si.setTitle("JAVA EXPORT"); // 填加xls文件标题信息
+			si.setSubject("JAVA EXPORT");// 填加文件主题信息
 			si.setCreateDateTime(new Date());
 			path = createContent(workbook, basePath, filePath);
 		} catch (Exception e) {
@@ -182,7 +182,7 @@ public class ProjectToExcel {
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("肝炎全套").get(i));
 			}
 			
-			CellRangeAddress shengHuaQuanTao = new CellRangeAddress(0, 0, 62, 107);
+			CellRangeAddress shengHuaQuanTao = new CellRangeAddress(0, 0, 62, 110);
 			// 在sheet里增加合并单元格
 			sheet.addMergedRegion(shengHuaQuanTao);
 			Cell cell11 = titleRow.createCell(62);
@@ -192,34 +192,34 @@ public class ProjectToExcel {
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("生化全套").get(i));
 			}
 			
-			Cell jiaTaiDanBaiCell = subTitleRow.createCell(108);
+			Cell jiaTaiDanBaiCell = subTitleRow.createCell(111);
 			jiaTaiDanBaiCell.setCellValue("甲胎蛋白");
 			
-			Cell aiPeiKangYuanCell = subTitleRow.createCell(109);
+			Cell aiPeiKangYuanCell = subTitleRow.createCell(112);
 			aiPeiKangYuanCell.setCellValue("癌胚抗原");
 			
-			Cell tangLeiKangYuan50Cell = subTitleRow.createCell(110);
+			Cell tangLeiKangYuan50Cell = subTitleRow.createCell(113);
 			tangLeiKangYuan50Cell.setCellValue("糖类抗原50");
 			
-			Cell tangLeiKangYuan724Cell = subTitleRow.createCell(111);
+			Cell tangLeiKangYuan724Cell = subTitleRow.createCell(114);
 			tangLeiKangYuan724Cell.setCellValue("糖类抗原72-4");
 			
-			Cell tangLeiKangYuan199Cell = subTitleRow.createCell(112);
+			Cell tangLeiKangYuan199Cell = subTitleRow.createCell(115);
 			tangLeiKangYuan199Cell.setCellValue("糖类抗原19-9");
 			
-			Cell tangLeiKangYuan242Cell = subTitleRow.createCell(113);
+			Cell tangLeiKangYuan242Cell = subTitleRow.createCell(116);
 			tangLeiKangYuan242Cell.setCellValue("糖类抗原242");
 			
-			Cell xiBaoJiaoDanBai19PianDuanCell = subTitleRow.createCell(114);
+			Cell xiBaoJiaoDanBai19PianDuanCell = subTitleRow.createCell(117);
 			xiBaoJiaoDanBai19PianDuanCell.setCellValue("细胞角蛋白19片段");
 			
-			Cell shenJingYuanTeYiXingXiChunHuaMeiCell = subTitleRow.createCell(115);
+			Cell shenJingYuanTeYiXingXiChunHuaMeiCell = subTitleRow.createCell(118);
 			shenJingYuanTeYiXingXiChunHuaMeiCell.setCellValue("神经元特异性烯醇化酶");
 			
-			Cell niaoDianCell = subTitleRow.createCell(116);
+			Cell niaoDianCell = subTitleRow.createCell(119);
 			niaoDianCell.setCellValue("尿碘");
 			
-			CellRangeAddress gongJingAiZaoQiShaiCha = new CellRangeAddress(0, 0, 117, 139);
+			CellRangeAddress gongJingAiZaoQiShaiCha = new CellRangeAddress(0, 0, 120, 142);
 			// 在sheet里增加合并单元格
 			sheet.addMergedRegion(gongJingAiZaoQiShaiCha);
 			Cell cell12 = titleRow.createCell(117);
@@ -229,28 +229,28 @@ public class ProjectToExcel {
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("宫颈癌早期筛查").get(i));
 			}
 			
-			Cell tangLeiKangYuan125Cell = subTitleRow.createCell(140);
+			Cell tangLeiKangYuan125Cell = subTitleRow.createCell(143);
 			tangLeiKangYuan125Cell.setCellValue("糖类抗原125");
 			
-			Cell aiPeiKangYuan153Cell = subTitleRow.createCell(141);
+			Cell aiPeiKangYuan153Cell = subTitleRow.createCell(144);
 			aiPeiKangYuan153Cell.setCellValue("糖类抗原15-3");
 			
-			Cell teYiBetaRenRongMaoMoCuXingXianJiSuCell = subTitleRow.createCell(142);
+			Cell teYiBetaRenRongMaoMoCuXingXianJiSuCell = subTitleRow.createCell(145);
 			teYiBetaRenRongMaoMoCuXingXianJiSuCell.setCellValue("特异β人绒毛膜促性腺激素");
 			
-			Cell tongXingBanGuangAnSuanCell = subTitleRow.createCell(143);
+			Cell tongXingBanGuangAnSuanCell = subTitleRow.createCell(146);
 			tongXingBanGuangAnSuanCell.setCellValue("同型半胱氨酸");
 			
-			Cell xiongGanJiMeiCell = subTitleRow.createCell(144);
+			Cell xiongGanJiMeiCell = subTitleRow.createCell(147);
 			xiongGanJiMeiCell.setCellValue("胸苷激酶1");
 			
-			Cell cell13 = titleRow.createCell(145);
+			Cell cell13 = titleRow.createCell(148);
 			cell13.setCellValue("酒精基因检测");
 			
-			Cell aldh2JiYinXingJianCeCell = subTitleRow.createCell(145);
+			Cell aldh2JiYinXingJianCeCell = subTitleRow.createCell(148);
 			aldh2JiYinXingJianCeCell.setCellValue("ALDH2基因型检测");
 			
-			CellRangeAddress qianLieXianTeYiXingKangYuanJianCe = new CellRangeAddress(0, 0, 146, 147);
+			CellRangeAddress qianLieXianTeYiXingKangYuanJianCe = new CellRangeAddress(0, 0, 149, 150);
 			// 在sheet里增加合并单元格
 			sheet.addMergedRegion(qianLieXianTeYiXingKangYuanJianCe);
 			Cell cell14 = titleRow.createCell(146);
@@ -260,90 +260,90 @@ public class ProjectToExcel {
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("前列腺特异性抗原检查").get(i));
 			}
 			
-			CellRangeAddress xueChangGui = new CellRangeAddress(0, 0, 148, 171);
+			CellRangeAddress xueChangGui = new CellRangeAddress(0, 0, 151, 174);
 			// 在sheet里增加合并单元格
 			sheet.addMergedRegion(xueChangGui);
-			Cell cell15 = titleRow.createCell(148);
+			Cell cell15 = titleRow.createCell(151);
 			cell15.setCellValue("血常规");
 			for(int i = 0; i < ProjectToExcelTitleMap.getProjectMap().get("血常规").size(); i++){
 				Cell subTitleCell = subTitleRow.createCell(i+148);
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("血常规").get(i));
 			}
 			
-			CellRangeAddress niaoChangGui = new CellRangeAddress(0, 0, 172, 182);
+			CellRangeAddress niaoChangGui = new CellRangeAddress(0, 0, 175, 185);
 			// 在sheet里增加合并单元格
 			sheet.addMergedRegion(niaoChangGui);
-			Cell cell16 = titleRow.createCell(172);
+			Cell cell16 = titleRow.createCell(175);
 			cell16.setCellValue("尿常规");
 			for(int i = 0; i < ProjectToExcelTitleMap.getProjectMap().get("尿常规").size(); i++){
 				Cell subTitleCell = subTitleRow.createCell(i+172);
 				subTitleCell.setCellValue(ProjectToExcelTitleMap.getProjectMap().get("尿常规").get(i));
 			}
 			
-			Cell hba1cCell = subTitleRow.createCell(183);
+			Cell hba1cCell = subTitleRow.createCell(186);
 			hba1cCell.setCellValue("HbA1c");
 			
-			Cell runXianCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(184);
+			Cell runXianCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(187);
 			runXianCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("乳腺彩色多普勒超声检查");
 			
-			Cell yeWoLinBaJieCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(185);
+			Cell yeWoLinBaJieCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(188);
 			yeWoLinBaJieCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("腋窝淋巴结彩色多普勒超声检查");
 			
-			Cell runXianMuBaCell = subTitleRow.createCell(186);
+			Cell runXianMuBaCell = subTitleRow.createCell(189);
 			runXianMuBaCell.setCellValue("乳腺钼钯");
 			
-			Cell xinZangCaiSeDuoPuLeChaoShengCell = subTitleRow.createCell(187);
+			Cell xinZangCaiSeDuoPuLeChaoShengCell = subTitleRow.createCell(190);
 			xinZangCaiSeDuoPuLeChaoShengCell.setCellValue("心脏彩色多普勒超声");
 			
-			Cell jiaZhuangXianCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(188);
+			Cell jiaZhuangXianCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(191);
 			jiaZhuangXianCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("甲状腺彩色多普勒超声检查");
 			
-			Cell miNiaoXiCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(189);
+			Cell miNiaoXiCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(192);
 			miNiaoXiCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("泌尿系彩色多普勒超声检查");
 			
-			Cell jingFuBuFuKeCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(190);
+			Cell jingFuBuFuKeCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(193);
 			jingFuBuFuKeCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("经腹部妇科彩色多普勒超声检查");
 			
-			Cell ganDanYiPiCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(191);
+			Cell ganDanYiPiCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(194);
 			ganDanYiPiCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("肝胆胰脾彩色多普勒超声检查");
 			
-			Cell xinDianTuCell = subTitleRow.createCell(192);
+			Cell xinDianTuCell = subTitleRow.createCell(195);
 			xinDianTuCell.setCellValue("心电图");
 			
-			Cell guMiDuCeDingCell = subTitleRow.createCell(193);
+			Cell guMiDuCeDingCell = subTitleRow.createCell(196);
 			guMiDuCeDingCell.setCellValue("骨密度测定");
 			
-			Cell fuKeYeJiBoCengXiBaoXueJianChaYuZhenDuanCell = subTitleRow.createCell(194);
+			Cell fuKeYeJiBoCengXiBaoXueJianChaYuZhenDuanCell = subTitleRow.createCell(197);
 			fuKeYeJiBoCengXiBaoXueJianChaYuZhenDuanCell.setCellValue("妇科液基薄层细胞学检查与诊断");
 			
-			Cell xiongBuZhengCeWeiCell = subTitleRow.createCell(195);
+			Cell xiongBuZhengCeWeiCell = subTitleRow.createCell(198);
 			xiongBuZhengCeWeiCell.setCellValue("胸部正侧位");
 			
-			Cell xiongBuCTPingSaoCell = subTitleRow.createCell(196);
+			Cell xiongBuCTPingSaoCell = subTitleRow.createCell(199);
 			xiongBuCTPingSaoCell.setCellValue("胸部CT平扫");
 			
-			Cell luNaoCTPingSaoCell = subTitleRow.createCell(197);
+			Cell luNaoCTPingSaoCell = subTitleRow.createCell(200);
 			luNaoCTPingSaoCell.setCellValue("颅脑CT平扫");
 			
-			Cell luNaoMRPingSaoChengXiangAndDWIChengXiangCell = subTitleRow.createCell(198);
+			Cell luNaoMRPingSaoChengXiangAndDWIChengXiangCell = subTitleRow.createCell(201);
 			luNaoMRPingSaoChengXiangAndDWIChengXiangCell.setCellValue("颅脑MR平扫成像+DWI成像");
 			
-			Cell jingLuCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(199);
+			Cell jingLuCaiSeDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(202);
 			jingLuCaiSeDuoPuLeChaoShengJianChaCell.setCellValue("经颅彩色多普勒超声检查");
 			
-			Cell youMenLuoGanJunIgGKangTiCell = subTitleRow.createCell(200);
+			Cell youMenLuoGanJunIgGKangTiCell = subTitleRow.createCell(203);
 			youMenLuoGanJunIgGKangTiCell.setCellValue("幽门螺杆菌IgG抗体");
 			
-			Cell c13HuQiShiYanCell = subTitleRow.createCell(201);
+			Cell c13HuQiShiYanCell = subTitleRow.createCell(204);
 			c13HuQiShiYanCell.setCellValue("C13呼气试验");
 			
-			Cell c14HuQiShiYanCell = subTitleRow.createCell(202);
+			Cell c14HuQiShiYanCell = subTitleRow.createCell(205);
 			c14HuQiShiYanCell.setCellValue("C14呼气试验");
 			
-			Cell shangXiaoHuaDaoBeiCanCell = subTitleRow.createCell(203);
+			Cell shangXiaoHuaDaoBeiCanCell = subTitleRow.createCell(206);
 			shangXiaoHuaDaoBeiCanCell.setCellValue("上消化道钡餐");
 			
-			Cell naoBuDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(204);
+			Cell naoBuDuoPuLeChaoShengJianChaCell = subTitleRow.createCell(207);
 			naoBuDuoPuLeChaoShengJianChaCell.setCellValue("脑多普勒超声检查");
 			
 			int rowIndex = 2;
